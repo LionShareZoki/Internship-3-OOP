@@ -1,3 +1,20 @@
+        void EditContactPreference(Contact contact, Contact.ContactPreference newPreference)
+        {
+            if (!phoneBook.Keys.Contains(contact))
+            {
+                Console.Clear();
+                Console.WriteLine("Ne postoji korisnik s tim brojem mobitel.");
+                Console.ReadKey();
+            }
+            else
+            {
+                contact.Preference = newPreference;
+                Console.Clear();
+                Console.WriteLine("Uspješno je promijenjena preferenca kontakta.");
+                Console.ReadKey();
+            }
+        }
+
         static void CreateNewCall(Program program)
         {
             Console.WriteLine("Unesite broj mobitela kontakta koji želite nazvati: ");
