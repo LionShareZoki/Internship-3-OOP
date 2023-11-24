@@ -1,3 +1,20 @@
+        void RemoveContact(Contact contact)
+        {
+            if (!phoneBook.Keys.Any(c => c.PhoneNumber == contact.PhoneNumber))
+            {
+                Console.Clear();
+                Console.WriteLine("Kontakt s tim brojem ne postoji.");
+                Console.ReadKey();
+            }
+            else
+            {
+                phoneBook.Remove(contact);
+                Console.Clear();
+                Console.WriteLine("Kontakt uspješno uklonjen.");
+                Console.ReadKey();
+            }
+        }
+
         void EditContactPreference(Contact contact, Contact.ContactPreference newPreference)
         {
             if (!phoneBook.Keys.Contains(contact))
