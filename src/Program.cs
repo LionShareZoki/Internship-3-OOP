@@ -1,3 +1,23 @@
+        static Contact GetNewContactFromUser()
+        {
+            Console.WriteLine("Unesite puno ime: ");
+            string fullName = Console.ReadLine();
+
+            Console.WriteLine("Unesite broj mobitela: ");
+            string phoneNumber = Console.ReadLine();
+
+            Console.WriteLine("Unesite kontakt preferencu (Favorit, Normalan, Blokiran): ");
+            if (Enum.TryParse(Console.ReadLine(), out Contact.ContactPreference preference))
+            {
+                return new Contact(fullName, phoneNumber, preference);
+            }
+            else
+            {
+                Console.WriteLine("Neispravna vrijednost preference. Unesena preferenca 'Normalan'.");
+                return new Contact(fullName, phoneNumber, Contact.ContactPreference.Normalan);
+            }
+        }
+
         static Contact GetContactToRemoveFromUser(Program program)
         {
             Console.WriteLine("Unesite broj mobitela kontakta koje želite ukloniti: ");
