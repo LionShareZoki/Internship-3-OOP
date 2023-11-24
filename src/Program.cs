@@ -1,3 +1,18 @@
+        public void PrintAllContacts()
+        {
+            Console.Clear();
+            Console.WriteLine("Svi kontakti u imeniku:");
+
+            foreach (var contact in phoneBook.Keys)
+            {
+                Console.WriteLine($"Ime: {contact.FullName}, Broj mobitela: {contact.PhoneNumber}, Preferenca: {contact.Preference}");
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+
         static int GetUserChoice()
         {
             int choice;
