@@ -1,3 +1,8 @@
+        IEnumerable<Contact> GetContacts()
+        {
+            return phoneBook.Keys;
+        }
+
         void AddContact(Contact contact)
         {
             if (phoneBook.Keys.Any(c => c.PhoneNumber == contact.PhoneNumber))
