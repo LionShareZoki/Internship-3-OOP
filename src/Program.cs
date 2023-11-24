@@ -1,3 +1,20 @@
+        static Contact GetContactToRemoveFromUser(Program program)
+        {
+            Console.WriteLine("Unesite broj mobitela kontakta koje želite ukloniti: ");
+            string phoneNumber = Console.ReadLine();
+
+            Contact contactToRemove = program.GetContacts().FirstOrDefault(c => c.PhoneNumber == phoneNumber);
+
+            if (contactToRemove == null)
+            {
+                Console.WriteLine("Ne postoji korisnik s tim brojem mobitela.");
+            }
+
+            return contactToRemove;
+        }
+
+
+
         static Contact GetContactToUpdatePreference(Program program)
         {
             Console.WriteLine("Unesite broj mobitela kontakta kojem želite promijeniti preferencu: ");
