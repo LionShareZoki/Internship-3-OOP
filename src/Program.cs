@@ -1,3 +1,13 @@
+        int GetUserSubMenuChoice()
+        {
+            int choice;
+            while (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                Console.WriteLine("Neispravan unos. Unesite broj.");
+            }
+            return choice;
+        }
+
         Contact GetContactToPrintCalls()
         {
             Console.WriteLine("Unesite broj mobitela kontakta kojem želite ispisati pozive: ");
