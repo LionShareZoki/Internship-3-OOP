@@ -1,3 +1,18 @@
+        void AddContact(Contact contact)
+        {
+            if (phoneBook.Keys.Any(c => c.PhoneNumber == contact.PhoneNumber))
+            {
+                Console.Clear();
+                Console.WriteLine("Kontakt sa istim brojem mobitela već postoji.");
+            }
+            else
+            {
+                phoneBook.Add(contact, new List<Call>());
+                Console.Clear();
+                Console.WriteLine("Kontakt uspješno dodan.");
+            }
+        }
+
         void RemoveContact(Contact contact)
         {
             if (!phoneBook.Keys.Any(c => c.PhoneNumber == contact.PhoneNumber))
