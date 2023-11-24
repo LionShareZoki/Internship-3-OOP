@@ -1,3 +1,18 @@
+        Contact GetContactToPrintCalls()
+        {
+            Console.WriteLine("Unesite broj mobitela kontakta kojem želite ispisati pozive: ");
+            string phoneNumber = Console.ReadLine();
+
+            Contact existingContact = GetContacts().FirstOrDefault(c => c.PhoneNumber == phoneNumber);
+
+            if (existingContact == null)
+            {
+                Console.WriteLine("Kontakt ne postoji u imeniku. Promjena nije izvršena.");
+            }
+
+            return existingContact;
+        }
+
         IEnumerable<Contact> GetContacts()
         {
             return phoneBook.Keys;
