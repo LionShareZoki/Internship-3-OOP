@@ -1,3 +1,18 @@
+        static Contact GetContactToUpdatePreference(Program program)
+        {
+            Console.WriteLine("Unesite broj mobitela kontakta kojem želite promijeniti preferencu: ");
+            string phoneNumber = Console.ReadLine();
+
+            Contact existingContact = program.GetContacts().FirstOrDefault(c => c.PhoneNumber == phoneNumber);
+
+            if (existingContact == null)
+            {
+                Console.WriteLine("Kontakt ne postoji u imeniku. Promjena nije izvršena.");
+            }
+
+            return existingContact;
+        }
+
         void PrintDescendingCalls()
         {
             Contact contactToPrint = GetContactToPrintCalls();
