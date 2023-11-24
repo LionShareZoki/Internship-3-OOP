@@ -1,3 +1,28 @@
+        void PrintDescendingCalls()
+        {
+            Contact contactToPrint = GetContactToPrintCalls();
+
+            if (contactToPrint != null)
+            {
+                Console.WriteLine($"Pozivi za kontakt {contactToPrint.FullName}:");
+
+                Dictionary<Contact, List<Call>> phoneBook = GetPhoneBook();
+
+                if (phoneBook.TryGetValue(contactToPrint, out List<Call> callsForContact))
+                {
+                    callsForContact = callsForContact.OrderByDescending(c => c.CallTime).ToList();
+
+                    foreach (var call in callsForContact)
+                    {
+                        Console.WriteLine($"Vrijeme poziva: {call.CallTime}, Status: {call.Status}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Nema poziva za prikaz za odabranog kontakta.");
+                }
+            }
+        }
 
 
         void SubMenu()
