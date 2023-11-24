@@ -1,3 +1,13 @@
+        static int GetUserChoice()
+        {
+            int choice;
+            while (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                Console.WriteLine("Neispravan unos. Unesite broj.");
+            }
+            return choice;
+        }
+
         static Contact GetNewContactFromUser()
         {
             Console.WriteLine("Unesite puno ime: ");
