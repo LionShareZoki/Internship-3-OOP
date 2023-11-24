@@ -1,3 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using phoneBook.Classes;
+
+namespace phoneBook
+{
+    public class Program
+    {
+        private readonly Dictionary<Contact, List<Call>> phoneBook = new Dictionary<Contact, List<Call>>();
+
+        static void Main()
+        {
+            var program = new Program();
+
             while (true)
             {
                 Console.WriteLine("1. Ispiši sve kontakte");
@@ -364,7 +380,10 @@
             }
             return false;
         }
+
         Dictionary<Contact, List<Call>> GetPhoneBook()
         {
             return phoneBook;
         }
+    }
+}
