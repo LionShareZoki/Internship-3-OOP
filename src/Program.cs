@@ -1,3 +1,29 @@
+
+
+        void SubMenu()
+        {
+            Console.WriteLine("1. Ispis svih poziva s tim kontaktom poredan od vremenski najnovijeg");
+            Console.WriteLine("2. Kreiranje novog poziva");
+            Console.WriteLine("3. Izlaz iz podmenua");
+
+            var subMenuChoice = GetUserSubMenuChoice();
+
+            switch (subMenuChoice)
+            {
+                case 1:
+                    Console.Clear();
+                    PrintDescendingCalls();
+                    break;
+                case 2:
+                    Console.Clear();
+                    CreateNewCall(this);
+                    break;
+                case 3:
+                    break;
+
+            }
+        }
+
         int GetUserSubMenuChoice()
         {
             int choice;
