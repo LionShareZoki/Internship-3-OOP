@@ -1,3 +1,64 @@
+            while (true)
+            {
+                Console.WriteLine("1. Ispiši sve kontakte");
+                Console.WriteLine("2. Dodaj novi kontakt");
+                Console.WriteLine("3. Izbriši kontakt ");
+                Console.WriteLine("4. Uredi preferencu kontakta");
+                Console.WriteLine("5. Upravljaj kontaktom");
+                Console.WriteLine("6. Ispis svih poziva");
+                Console.WriteLine("7. Exit");
+
+                int choice = GetUserChoice();
+
+                switch (choice)
+                {
+                    case 1:
+                        Console.Clear();
+                        program.PrintAllContacts();
+                        break;
+
+                    case 2:
+                        Console.Clear();
+                        Contact newContact = GetNewContactFromUser();
+                        program.AddContact(newContact);
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Contact contactToRemove = GetContactToRemoveFromUser(program);
+                        program.RemoveContact(contactToRemove);
+                        break;
+
+                    case 4:
+                        Console.Clear();
+                        Contact contactToUpdate = GetContactToUpdatePreference(program);
+                        Console.WriteLine("Unesite novu preferencu kontakta (Favorit, Normalan, Blokiran): ");
+                        if (Enum.TryParse(Console.ReadLine(), out Contact.ContactPreference newPreference))
+                        {
+                            program.EditContactPreference(contactToUpdate, newPreference);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Neispravna vrijednost preference. Promjena nije izvršena.");
+                        }
+                        break;
+                    case 5:
+                        Console.Clear();
+                        program.SubMenu();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        program.PrintAllCalls();
+                        break;
+                    case 7:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Neispravan unos. Molim vas pokušajte ponovo.");
+                        break;
+                }
+            }
+        }
+
         public void PrintAllContacts()
         {
             Console.Clear();
