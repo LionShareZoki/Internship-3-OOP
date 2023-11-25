@@ -518,7 +518,7 @@ namespace phoneBook
                 {
                     var contact = entry.Key;
                     var calls = entry.Value;
-
+                    Console.Clear();
                     Console.WriteLine($"Pozivi za kontakt {contact.FullName}:");
 
                     if (calls.Any())
